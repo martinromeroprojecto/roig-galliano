@@ -1,0 +1,11 @@
+# Sistema
+.DS_Store
+.claude/
+
+# Originales de trabajo (ya copiados a assets/)
+/IMAGENES/
+/IMAGENES CATEGORIA C/
+
+# Artefactos internos del proceso
+STRATEGY.json
+REVIEW.json

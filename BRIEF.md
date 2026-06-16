@@ -1,7 +1,7 @@
-# BRIEF.md — Roig · Galliano
+# BRIEF.md — Roig · Gallano
 
 > Operativo end-to-end para la landing de la charla informativa grupal sobre importación desde China.
-> Negocio: Roig · Galliano · Servicio de importación China → Argentina (con hub Miami).
+> Negocio: Roig · Gallano · Servicio de importación China → Argentina (con hub Miami).
 > Producto: Zoom grupal informativo (~90 min) · ARS 90.000 · 3 cuotas sin interés con Mercado Pago.
 > Idioma de toda la pieza: español argentino (voseo), tono conversacional profesional, cero chamuyo.
 
@@ -35,7 +35,7 @@ Landing (landing.html)
 
 Hosts visibles en TODA la landing:
 - **Juan Bautista Roig** — Hub Miami · Logística USA.
-- **Emanuel Galliano** — Despacho Aduana · Shanghai.
+- **Emanuel Gallano** — Despacho Aduana · Shanghai.
 
 Oficinas mencionadas en footer: Buenos Aires + Shanghai + Miami (vía alianza con Bauti).
 
@@ -102,7 +102,7 @@ Negative: no text, no logos, no watermarks, no captions, no UI overlays, no extr
 
 ---
 
-### IMG-04 — Host card · Emanuel Galliano (Despacho Aduana · Shanghai)
+### IMG-04 — Host card · Emanuel Gallano (Despacho Aduana · Shanghai)
 
 - **Ubicación**: `landing.html` → sección `hosts` → segunda tarjeta de host.
 - **Tamaño display**: 520 × 640 px · ratio **13:16**.
@@ -207,10 +207,10 @@ Negative: no text, no logos, no watermarks, no captions, no UI screenshots, no r
 
 Estos se escriben directamente en el HTML/CSS. No requieren generación con modelos.
 
-### 3.1 Logo Roig · Galliano (wordmark inline SVG)
+### 3.1 Logo Roig · Gallano (wordmark inline SVG)
 
 ```html
-<svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-label="Roig · Galliano">
+<svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-label="Roig · Gallano">
   <text x="0" y="28" font-family="'Inter', system-ui, sans-serif"
         font-weight="700" font-size="24" letter-spacing="-0.02em" fill="currentColor">
     Roig
@@ -218,7 +218,7 @@ Estos se escriben directamente en el HTML/CSS. No requieren generación con mode
   <circle cx="78" cy="20" r="3" fill="#10b981"/>
   <text x="92" y="28" font-family="'Inter', system-ui, sans-serif"
         font-weight="500" font-size="24" letter-spacing="-0.02em" fill="currentColor">
-    Galliano
+    Gallano
   </text>
 </svg>
 ```
@@ -300,7 +300,7 @@ Snippet de carga (inline, sin texto en imágenes):
 
 ### 4.1 Mercado Pago
 
-- [ ] Crear preferencia de pago en cuenta `Roig · Galliano` (MP Argentina).
+- [ ] Crear preferencia de pago en cuenta `Roig · Gallano` (MP Argentina).
 - [ ] Monto: **ARS 90.000**.
 - [ ] Habilitar `installments: 3` con `interest_free` aplicado por el comercio.
 - [ ] Tipo de checkout: **link de pago** (no Checkout Pro embebido en v1).
@@ -388,7 +388,7 @@ Tip de workflow:
 ```bash
 #!/usr/bin/env bash
 # tools/fetch_placeholders.sh
-# Descarga placeholders de Unsplash para la landing Roig · Galliano.
+# Descarga placeholders de Unsplash para la landing Roig · Gallano.
 # Uso:
 #   export UNSPLASH_ACCESS_KEY="tu_access_key_aqui"
 #   ./tools/fetch_placeholders.sh
@@ -485,7 +485,7 @@ Notas operativas del script:
 
 #### 8.1.3 HEADER · Estructura logo + login (landing.html, líneas 1453-1473)
 
-- **Issue**: falta el botón `Login` que en Closify aparece a la izquierda del `Sign Up` pill blanco. La referencia tiene: logo izq | nav 4 items center | Login (text link) + Sign Up (pill blanco) der. Acá hay WhatsApp icon + pill `Reservá tu Zoom`. WhatsApp con icono+texto rompe el minimalismo. Además el logo `Roig · Galliano` es solo texto sin glifo: Closify usa wordmark con símbolo a la izquierda.
+- **Issue**: falta el botón `Login` que en Closify aparece a la izquierda del `Sign Up` pill blanco. La referencia tiene: logo izq | nav 4 items center | Login (text link) + Sign Up (pill blanco) der. Acá hay WhatsApp icon + pill `Reservá tu Zoom`. WhatsApp con icono+texto rompe el minimalismo. Además el logo `Roig · Gallano` es solo texto sin glifo: Closify usa wordmark con símbolo a la izquierda.
 - **Fix**: reemplazar el botón WhatsApp en header por un link `Iniciar sesión` (o `Acceder`) estilo text-link muted, dejando solo el pill blanco `Reservá tu Zoom` como CTA primario. Mantener WhatsApp en otros lugares (sticky mobile, hosts cards). Agregar un mini-mark SVG al logo (dot/ship esmeralda).
 - [ ] Resuelto
 
@@ -659,7 +659,7 @@ Notas operativas del script:
 
 - **Issue**: el paso 01 dice "Mandá el comprobante" pero falta un fallback en caso de que el botón no funcione (email, teléfono alternativo). No hay confirmación visible del número WhatsApp que va a contactar al usuario. El paso 02 dice "< 24 horas hábiles" pero no aclara qué pasa fuera de horario hábil ni el huso horario.
 - **Fix**:
-  1. Agregar debajo del botón WhatsApp un micro-bloque `O escribinos a charla@roiggalliano.com · respuesta < 24h hábiles`.
+  1. Agregar debajo del botón WhatsApp un micro-bloque `O escribinos a charla@roiggallano.com · respuesta < 24h hábiles`.
   2. En el paso 02 cambiar a `En menos de 24 horas hábiles (lun-vie 10-19hs ARG) te confirmamos día y horario`.
   3. Paso 04 opcional `Mientras tanto, guardá este link y miralo desde el celular` con un mini calendario `.ics` descargable.
   4. Confirmar visualmente el monto pagado (`Recibimos tu pago de ARS 90.000 · MP confirmará por mail`).

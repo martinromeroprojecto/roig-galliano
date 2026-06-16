@@ -1142,6 +1142,19 @@ ul { list-style: none; }
   background: var(--emerald); color: var(--text-inverse);
   border-radius: 8px; font-weight: 600;
 }
+/* ============ PNG FLOTANTES EN MOBILE ============ */
+/* En el teléfono los PNG deben ser chicos y discretos ("flotando poquito"),
+   sin tapar texto ni quedar encajonados sobre las cards. */
+@media (max-width: 768px) {
+  .float-png img { filter: drop-shadow(0 8px 22px rgba(0, 232, 154, 0.22)); opacity: 0.92; }
+  /* avión (hero): chico y arriba a la derecha, zona libre */
+  .hero .float-png--airplane { width: 86px !important; height: 86px !important; top: 13% !important; right: 1% !important; }
+  /* moneda (precio): NO tape el texto centrado → asoma chiquita desde el borde sup-izq */
+  [data-img-prompt="png-coin"] { width: 70px !important; height: 70px !important; top: -10px !important; left: -14px !important; }
+  /* cohete (cierre): que sobresalga ARRIBA de la card, flotando sobre el fondo (sin "box") */
+  [data-img-prompt="png-rocket"] { width: 86px !important; height: 86px !important; top: -30px !important; right: 6px !important; }
+}
+
 /* ============ PANTALLAS GRANDES / TV / 4K ============ */
 /* En monitores y TVs el contenido aprovecha más ancho y crece proporcional,
    en vez de quedar diminuto y centrado con mucho aire. */
@@ -2032,6 +2045,9 @@ ul { list-style: none; }
   .c2-big__num { font-size: clamp(70px, 24vw, 120px); }
   .c2-big__name { font-size: clamp(16px, 5vw, 22px); }
   .c2-stage { height: 175px; }
+  /* En mobile el filtro SVG sobre un elemento que se transforma cada frame
+     lagea muchísimo. Lo apagamos: el slide queda fluido sin motion blur. */
+  .c2-wrap.is-pinned .c2-track { filter: none !important; will-change: transform; }
   .c2-track { gap: 56px; }
   .c2step { width: 100px; }
   .c2step__node { width: 60px; height: 60px; }
@@ -3182,6 +3198,12 @@ ul { list-style: none; }
   var dotsEl = wrap.querySelector('[data-c2dots]');
   var stage = wrap.querySelector('.c2-stage');
   var blurEl = document.querySelector('[data-c2blur]');
+  var noBlurMq = window.matchMedia('(max-width: 900px)');
+  var noBlur = noBlurMq.matches; // sin motion blur en mobile (performance)
+  if (noBlurMq.addEventListener) noBlurMq.addEventListener('change', function (e) {
+    noBlur = e.matches;
+    if (noBlur && blurEl) blurEl.setAttribute('stdDeviation', '0 0');
+  });
   var N = steps.length;
 
   var data = steps.map(function (s) {
@@ -3240,8 +3262,8 @@ ul { list-style: none; }
     track.style.transform = 'translate3d(' + tx + 'px,0,0)';
     // El nodo activo SIEMPRE está en el centro → la línea verde llega siempre al centro (no proporcional).
     if (fillEl) fillEl.style.width = 'calc(50% - 34px)';
-    // motion blur direccional según velocidad de scroll (decae al frenar)
-    if (blurEl) {
+    // motion blur direccional según velocidad (solo desktop — en mobile lagea muchísimo)
+    if (blurEl && !noBlur) {
       var vel = Math.abs(p - lastProgress);
       var b = Math.min(vel * 1100, 16);
       blurEl.setAttribute('stdDeviation', b.toFixed(2) + ' 0');

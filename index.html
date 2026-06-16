@@ -8,10 +8,10 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://roiggalliano.com/">
+<meta property="og:url" content="https://roig-galliano.vercel.app/">
 <meta property="og:title" content="Importá desde China sin perder margen — Roig · Galliano">
 <meta property="og:description" content="90 minutos por Zoom con Bauti desde Miami y Ema desde aduana China. Los 10 pasos reales para importar barato. ARS 97.000 en 3 cuotas sin interés.">
-<meta property="og:image" content="https://roiggalliano.com/og-image.jpg">
+<meta property="og:image" content="https://roig-galliano.vercel.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_AR">
@@ -20,11 +20,11 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Importá desde China sin perder margen — Roig · Galliano">
 <meta name="twitter:description" content="90 minutos por Zoom con Bauti desde Miami y Ema desde aduana China. ARS 97.000 en 3 cuotas sin interés.">
-<meta name="twitter:image" content="https://roiggalliano.com/og-image.jpg">
+<meta name="twitter:image" content="https://roig-galliano.vercel.app/og-image.jpg">
 
 
 <!-- Canonical -->
-<link rel="canonical" href="https://roiggalliano.com/">
+<link rel="canonical" href="https://roig-galliano.vercel.app/">
 
 <!-- Theme / PWA color -->
 <meta name="theme-color" content="#0A0F0D">
@@ -44,19 +44,19 @@
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
   "location": { "@type": "VirtualLocation", "url": "https://zoom.us/" },
-  "organizer": { "@type": "Organization", "name": "Roig · Galliano", "url": "https://roiggalliano.com/" },
+  "organizer": { "@type": "Organization", "name": "Roig · Galliano", "url": "https://roig-galliano.vercel.app/" },
   "performer": [
     { "@type": "Person", "name": "Juan Bautista Roig" },
     { "@type": "Person", "name": "Emanuel Galliano" }
   ],
   "offers": {
     "@type": "Offer",
-    "url": "https://roiggalliano.com/#precio",
+    "url": "https://roig-galliano.vercel.app/#precio",
     "price": "97000",
     "priceCurrency": "ARS",
     "availability": "https://schema.org/InStock"
   },
-  "image": "https://roiggalliano.com/og-image.jpg"
+  "image": "https://roig-galliano.vercel.app/og-image.jpg"
 }
 </script>
 
@@ -284,9 +284,13 @@ ul { list-style: none; }
   transition: all var(--t-fast);
 }
 .header__signup:hover { box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15); }
+/* En tablet (769-900) el header puede apretar: achicamos el nav y ocultamos el login. */
+@media (max-width: 900px) {
+  .header__nav { gap: 20px; }
+  .header__login { display: none; }
+}
 @media (max-width: 768px) {
   .header__nav { display: none; }
-  .header__login { display: none; }
 }
 
 /* ============ SECTION PILL ============ */
@@ -794,11 +798,6 @@ ul { list-style: none; }
   font-size: 11px; color: var(--text-muted);
 }
 .tag-chip svg { width: 10px; height: 10px; }
-.person-card__bio {
-  font-size: 12.5px; line-height: 1.55; color: var(--text-muted);
-  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
-  overflow: hidden;
-}
 .person-card__actions {
   display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap;
 }
@@ -890,36 +889,6 @@ ul { list-style: none; }
 .pricing-card__price-num { display: inline-block; }
 
 /* Burbuja testimonial al lado del pricing (sin foto, sin video) */
-.bubble-side {
-  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
-  border: 1px solid var(--border-emerald-soft);
-  border-radius: var(--radius-card-lg);
-  padding: 32px;
-  display: flex; flex-direction: column; gap: 18px;
-  position: relative; overflow: hidden;
-}
-.bubble-side::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 320px 200px at 50% 0%, var(--emerald-glow-08), transparent 70%);
-  pointer-events: none;
-}
-.bubble-side__quote {
-  font-family: var(--font-display);
-  font-size: 16px; line-height: 1.45; letter-spacing: -0.015em;
-  color: var(--text-display); font-weight: 500;
-}
-.bubble-side__author {
-  display: flex; align-items: center; gap: 10px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-default);
-}
-.bubble-side__avatar {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; color: var(--text-inverse); font-size: 12px;
-}
-
 /* ============ TESTIMONIOS BURBUJAS ============ */
 .bubbles {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
@@ -1146,13 +1115,10 @@ ul { list-style: none; }
 /* En el teléfono los PNG deben ser chicos y discretos ("flotando poquito"),
    sin tapar texto ni quedar encajonados sobre las cards. */
 @media (max-width: 768px) {
-  .float-png img { filter: drop-shadow(0 8px 22px rgba(0, 232, 154, 0.22)); opacity: 0.92; }
-  /* avión (hero): chico y arriba a la derecha, zona libre */
-  .hero .float-png--airplane { width: 86px !important; height: 86px !important; top: 13% !important; right: 1% !important; }
-  /* moneda (precio): NO tape el texto centrado → asoma chiquita desde el borde sup-izq */
-  [data-img-prompt="png-coin"] { width: 70px !important; height: 70px !important; top: -10px !important; left: -14px !important; }
-  /* cohete (cierre): que sobresalga ARRIBA de la card, flotando sobre el fondo (sin "box") */
-  [data-img-prompt="png-rocket"] { width: 86px !important; height: 86px !important; top: -30px !important; right: 6px !important; }
+  /* En pantallas chicas los PNG decorativos no tienen lugar sin tapar texto ni
+     cortarse contra el overflow de las secciones. Se ocultan TODOS en mobile —
+     el hero ya tiene los tiles "EN VIVO" como foco visual. En desktop se mantienen. */
+  .float-png { display: none !important; }
 }
 
 /* ============ PANTALLAS GRANDES / TV / 4K ============ */
@@ -1348,21 +1314,6 @@ ul { list-style: none; }
   text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--text-muted);
 }
-/* Rating con estrellas + count de reseñas */
-.rg-rating { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.rg-rating__stars { display: inline-flex; gap: 2px; }
-.rg-rating__stars svg { width: 13px; height: 13px; color: var(--rating-gold); }
-.rg-rating__score {
-  font-family: var(--font-display);
-  font-size: 15px; font-weight: 700;
-  letter-spacing: -0.02em; color: var(--text-display);
-}
-.rg-rating__count {
-  font-family: var(--font-mono);
-  font-size: 11px; color: var(--text-muted); letter-spacing: 0.02em;
-}
-/* Bio a 3 líneas (densidad Closify) */
-.person-card .person-card__bio { -webkit-line-clamp: 3; }
 @media (max-width: 768px) {
   .rg-pcstat__num { font-size: 23px; }
 }
@@ -1457,9 +1408,6 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .stats-band { padding: 56px 0; }
   .stats-band__item::before { filter: blur(28px); opacity: 0.6; }
-}
-@media (max-width: 460px) {
-  .stats-band__inner { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stats-band__item::before { animation: none !important; }
@@ -1859,7 +1807,7 @@ ul { list-style: none; }
   overflow: hidden;
 }
 /* Pin activo (lo enciende el JS solo en desktop sin reduced-motion) */
-.c2-wrap.is-pinned { height: 520vh; }
+.c2-wrap.is-pinned { height: 740vh; }
 .c2-wrap.is-pinned .c2-pin {
   position: sticky;
   top: 0;
@@ -2038,7 +1986,7 @@ ul { list-style: none; }
 
 /* ---- Mobile: MISMA animación pinned, solo más compacta ---- */
 @media (max-width: 900px) {
-  .c2-wrap.is-pinned { height: 460vh; }
+  .c2-wrap.is-pinned { height: 640vh; }
   .c2-pin { padding: 56px 0; }
   .c2-header { margin-bottom: 12px; }
   .c2-big { margin: 4px auto 22px; }
@@ -2061,6 +2009,21 @@ ul { list-style: none; }
   .c2step { width: 86px; }
   .c2step__node { width: 54px; height: 54px; }
   .c2-big__num { font-size: clamp(64px, 26vw, 104px); }
+}
+
+/* Teléfonos de pantalla CORTA (iPhone SE 667, Android 640): el pin a 100vh con
+   todo centrado recortaba el header o el CTA. Comprimimos verticalmente y
+   anclamos arriba para que entren completos durante todo el scroll pinneado. */
+@media (max-width: 900px) and (max-height: 740px) {
+  .c2-wrap.is-pinned .c2-pin { justify-content: flex-start; padding-top: 20px; }
+  .c2-header { margin-bottom: 8px; }
+  .c2-big { margin: 2px auto 14px; }
+  .c2-big__num { font-size: clamp(52px, 15vh, 84px); }
+  .c2-big__name { font-size: clamp(15px, 4vw, 19px); }
+  .c2-stage { height: 140px; }
+  .c2-dots { margin-top: 14px; }
+  .circuit-hint { margin-top: 10px; }
+  .c2-cta { margin-top: 12px; }
 }
 
 /* ---- Reduced-motion: sin pin, lista vertical estática (accesible) ---- */
@@ -2234,12 +2197,12 @@ ul { list-style: none; }
 
   <!-- PNG flotante: avión papel verde (top-right) -->
   <div class="float-png float-png--airplane" data-img-prompt="png-airplane">
-    <img src="assets/png/airplane-papercraft.png" alt="Avión">
+    <img src="assets/png/airplane-papercraft.png" alt="" loading="lazy">
   </div>
 
   <!-- PNG flotante: container chino (bottom-left) -->
   <div class="float-png float-png--container float-png--slow float-png--hide-mobile" data-img-prompt="png-container">
-    <img src="assets/png/container-iso.png" alt="Container">
+    <img src="assets/png/container-iso.png" alt="" loading="lazy">
   </div>
 
   <div class="container">
@@ -2416,21 +2379,27 @@ ul { list-style: none; }
 
       <article class="card card--mockup reveal">
         <div class="card--mockup__visual">
-          <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-            <defs><filter id="glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <!-- Mockup de chat de WhatsApp: confirmación + link del Zoom -->
+          <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
             <rect width="320" height="220" rx="16" fill="#131A16"/>
-            <line x1="44" y1="92" x2="276" y2="92" stroke="#2A332F" stroke-width="1.5"/>
-            <line x1="44" y1="92" x2="276" y2="92" stroke="#00E89A" stroke-width="1.5" opacity="0.85"/>
-            <g transform="translate(32,80)"><rect width="24" height="24" rx="6" fill="#1A2420" stroke="#2A332F"/><path d="M6 9 L12 6 L18 9 L18 18 L6 18 Z M6 9 L12 12 L18 9 M12 12 L12 18" fill="none" stroke="#8B9491" stroke-width="1.2"/></g>
-            <text x="44" y="128" font-size="9" fill="#8B9491" text-anchor="middle">Origen</text>
-            <g transform="translate(108,80)"><rect width="24" height="24" rx="6" fill="#1A2420" stroke="#2A332F"/><path d="M5 13 L19 13 L17 16 L7 16 Z M12 5 L12 13 M8 9 L16 9" fill="none" stroke="#8B9491" stroke-width="1.2"/></g>
-            <text x="120" y="128" font-size="9" fill="#8B9491" text-anchor="middle">Tránsito</text>
-            <g transform="translate(184,80)"><rect width="24" height="24" rx="6" fill="#1A2420" stroke="#2A332F"/><circle cx="12" cy="10" r="4" fill="none" stroke="#8B9491" stroke-width="1.2"/><path d="M9 13 L8 19 L12 17 L16 19 L15 13" fill="none" stroke="#8B9491" stroke-width="1.2"/></g>
-            <text x="196" y="128" font-size="9" fill="#8B9491" text-anchor="middle">Aduana</text>
-            <g transform="translate(260,80)" filter="url(#glow2)"><rect width="24" height="24" rx="6" fill="#0A2A1F" stroke="#00E89A" stroke-width="1.5"/><path d="M6 12 L10 16 L18 8" fill="none" stroke="#00E89A" stroke-width="1.8"/></g>
-            <circle cx="272" cy="92" r="14" fill="none" stroke="#00E89A" stroke-width="0.6" opacity="0.4"/>
-            <text x="272" y="128" font-size="9" fill="#00E89A" text-anchor="middle" font-weight="600">Listo</text>
-            <text x="160" y="158" font-size="10" fill="#8B9491" text-anchor="middle">ETA · 32 días</text>
+            <rect x="0.5" y="0.5" width="319" height="219" rx="16" fill="none" stroke="#1F2A25"/>
+            <!-- barra de chat -->
+            <circle cx="34" cy="34" r="13" fill="#00E89A"/>
+            <path d="M30 38c-.4-.2-1.1-.5-1.3-.6-.2 0-.3 0-.4.1l-.6.7c-.1.1-.2.1-.4 0-.6-.3-1.3-.8-1.7-1.6-.1-.2 0-.3.1-.4l.3-.4c0-.1 0-.2 0-.3l-.5-1.3c-.1-.3-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.6.6-.6 1.4 0 .9.6 1.7.7 1.8.1.1 1.2 1.9 3 2.6.9.3 1.2.3 1.6.3.3 0 1-.4 1.1-.8.1-.4.1-.7.1-.8z" fill="#0A0F0D"/>
+            <text x="56" y="30" font-size="12" font-weight="700" fill="#F5F7F6">Roig · Galliano</text>
+            <text x="56" y="44" font-size="9" fill="#00E89A">en línea</text>
+            <line x1="16" y1="58" x2="304" y2="58" stroke="#1F2A25"/>
+            <!-- burbuja recibida -->
+            <rect x="16" y="74" width="210" height="34" rx="12" fill="#1A2420"/>
+            <text x="30" y="89" font-size="10" fill="#F5F7F6">¡Pago confirmado! Te</text>
+            <text x="30" y="102" font-size="10" fill="#F5F7F6">esperamos en el Zoom 🎥</text>
+            <!-- burbuja con link (verde) -->
+            <rect x="64" y="120" width="240" height="50" rx="12" fill="#0A3D2B"/>
+            <rect x="64" y="120" width="240" height="50" rx="12" fill="none" stroke="#00E89A" stroke-opacity="0.4"/>
+            <text x="78" y="138" font-size="10" font-weight="600" fill="#00E89A">Tu link de la charla</text>
+            <text x="78" y="153" font-size="9" fill="#8B9491">zoom.us/j/roig-galliano</text>
+            <text x="78" y="164" font-size="8" fill="#5A6360">Jueves · 19:00 hs ARG</text>
+            <text x="290" y="190" font-size="8" fill="#8B9491" text-anchor="end">9:41 ✓✓</text>
           </svg>
         </div>
         <div class="card--mockup__content">
@@ -2970,8 +2939,6 @@ ul { list-style: none; }
         <ul>
           <li><a href="#faq">Preguntas frecuentes</a></li>
           <li><a href="https://wa.me/5492257617922?text=Hola%2C%20consulta%20general" target="_blank" rel="noopener">Hablar por WhatsApp</a></li>
-          <li><a href="/reembolso">Política de reembolso</a></li>
-          <li><a href="/terminos">Términos y condiciones</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -3257,11 +3224,17 @@ ul { list-style: none; }
 
   function render(p) {
     if (!pitch) measure();
-    var activeFloat = p * (N - 1);
+    // Dwell: el primer y último tramo del scroll mantienen fijos el paso 1 y el 10,
+    // así da tiempo a leerlos (sobre todo el final, que antes "se iba enseguida").
+    var IN = 0.07, OUT = 0.93;
+    var eff = (p - IN) / (OUT - IN);
+    eff = eff < 0 ? 0 : (eff > 1 ? 1 : eff);
+    var activeFloat = eff * (N - 1);
     var tx = (stageW / 2) - (activeFloat * pitch + stepW / 2);
     track.style.transform = 'translate3d(' + tx + 'px,0,0)';
-    // El nodo activo SIEMPRE está en el centro → la línea verde llega siempre al centro (no proporcional).
-    if (fillEl) fillEl.style.width = 'calc(50% - 34px)';
+    // La línea verde llega hasta el CENTRO del nodo activo y queda escondida detrás de él
+    // (el nodo, que está por encima, la tapa). No hace tope en el borde.
+    if (fillEl) fillEl.style.width = '50%';
     // motion blur direccional según velocidad (solo desktop — en mobile lagea muchísimo)
     if (blurEl && !noBlur) {
       var vel = Math.abs(p - lastProgress);
@@ -3329,12 +3302,14 @@ ul { list-style: none; }
   links.forEach(function (a) {
     a.addEventListener('click', function (e) {
       e.preventDefault();
-      // 1) abrir Mercado Pago para pagar (pestaña/app nueva)
-      var win = window.open(PAY, '_blank', 'noopener');
-      // 2) dejar la Thank You cargada en esta pestaña para cuando vuelvan
-      setTimeout(function () { window.location.href = 'thankyou.html'; }, 150);
-      // fallback: si el navegador bloqueó el popup, mandamos esta pestaña a MP
-      if (!win) { window.location.href = PAY; }
+      // 1) abrir Mercado Pago para pagar en pestaña nueva.
+      //    NO usamos 'noopener' como 3er arg porque con noopener window.open
+      //    devuelve null SIEMPRE (spec WHATWG) — antes eso disparaba un falso
+      //    "popup bloqueado". Abrimos normal y luego cortamos el opener a mano.
+      var win = window.open(PAY, '_blank');
+      if (win) { try { win.opener = null; } catch (_) {} }
+      // 2) esta pestaña queda en la Thank You para cuando vuelvan del pago.
+      window.location.href = 'thankyou.html';
     });
   });
 })();
